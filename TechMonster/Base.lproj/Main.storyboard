@@ -15,10 +15,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Lobby View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TechMonster" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LobbyViewController" customModule="TechMonster" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -68,22 +68,28 @@
                                     <color key="titleColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="36x-bV-edP" kind="show" id="E6m-nd-2gS"/>
+                                    <action selector="startBattle" destination="BYZ-38-t0r" eventType="touchUpInside" id="CNV-Fp-zoU"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="levelLabel" destination="KuT-Mk-9AJ" id="scl-eN-Slx"/>
+                        <outlet property="nameLabel" destination="rWv-35-40w" id="opM-zT-KU2"/>
+                        <outlet property="staminaBar" destination="HOs-o8-P5W" id="9lO-EX-8qp"/>
+                        <segue destination="36x-bV-edP" kind="show" identifier="startBattle" id="RQI-nH-Gqx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
         </scene>
-        <!--View Controller-->
+        <!--Battle View Controller-->
         <scene sceneID="dXl-q6-zdl">
             <objects>
-                <viewController id="36x-bV-edP" sceneMemberID="viewController">
+                <viewController id="36x-bV-edP" customClass="BattleViewController" customModule="TechMonster" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KQV-it-QDz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -96,22 +102,65 @@
                                 <rect key="frame" x="75" y="483" width="224" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="MisakiGothic" family="MisakiGothic" pointSize="19"/>
-                                <state key="normal" title="冒険に行く" backgroundImage="gold_button.png">
+                                <state key="normal" title="こうげき" backgroundImage="gold_button.png">
                                     <color key="titleColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="playerAttack" destination="36x-bV-edP" eventType="touchUpInside" id="nsi-FT-VXY"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="battlebg.png" translatesAutoresizingMaskIntoConstraints="NO" id="Jse-Wa-Isw">
                                 <rect key="frame" x="0.0" y="62" width="375" height="375"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="sNn-OX-HRj">
+                                <rect key="frame" x="35" y="123" width="160" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </progressView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="f0I-k9-L80">
+                                <rect key="frame" x="170" y="374" width="160" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </progressView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="yusya.png" translatesAutoresizingMaskIntoConstraints="NO" id="YVo-Zz-MFM">
+                                <rect key="frame" x="35" y="263" width="120" height="145"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="monster.png" translatesAutoresizingMaskIntoConstraints="NO" id="wCe-cN-FH0">
+                                <rect key="frame" x="234" y="94" width="99" height="119"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eSy-sS-HQM">
+                                <rect key="frame" x="35" y="84" width="120" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="MisakiGothic" family="MisakiGothic" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y9O-ZJ-gZU">
+                                <rect key="frame" x="170" y="336" width="50" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="MisakiGothic" family="MisakiGothic" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="aMV-pN-CO3"/>
                     </view>
+                    <connections>
+                        <outlet property="attackButton" destination="JJc-Ha-U6h" id="P31-qa-WaM"/>
+                        <outlet property="backgroundImaggeView" destination="Jse-Wa-Isw" id="x6D-w9-pmW"/>
+                        <outlet property="enemyHPBar" destination="sNn-OX-HRj" id="wmZ-H0-tFf"/>
+                        <outlet property="enemyImageView" destination="wCe-cN-FH0" id="clb-OP-Mro"/>
+                        <outlet property="enemyNameLabel" destination="eSy-sS-HQM" id="mGR-vv-mpS"/>
+                        <outlet property="playerHPBar" destination="f0I-k9-L80" id="5uJ-J9-7cZ"/>
+                        <outlet property="playerImageView" destination="YVo-Zz-MFM" id="5IT-yT-fuC"/>
+                        <outlet property="playerNameLabel" destination="y9O-ZJ-gZU" id="yZN-Tr-Cug"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="29Q-zX-icO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1031" y="134"/>
+            <point key="canvasLocation" x="1029.5999999999999" y="133.5832083958021"/>
         </scene>
     </scenes>
     <resources>
@@ -119,6 +168,7 @@
         <image name="bgimage.jpg" width="1280" height="960"/>
         <image name="gold_button.png" width="800" height="245"/>
         <image name="lobby.png" width="500" height="400"/>
+        <image name="monster.png" width="88" height="120"/>
         <image name="yusya.png" width="56" height="56"/>
     </resources>
 </document>

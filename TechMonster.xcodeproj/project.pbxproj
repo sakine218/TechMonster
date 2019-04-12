@@ -32,6 +32,8 @@
 		11E11A91225B2A87001D50C1 /* SE_charge.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 11E11A7E225B2A87001D50C1 /* SE_charge.mp3 */; };
 		11E11A92225B2A87001D50C1 /* lobby.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 11E11A7F225B2A87001D50C1 /* lobby.mp3 */; };
 		11E11A93225B2A87001D50C1 /* misaki_gothic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 11E11A81225B2A87001D50C1 /* misaki_gothic.ttf */; };
+		11E11A95225F3268001D50C1 /* LobbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E11A94225F3268001D50C1 /* LobbyViewController.swift */; };
+		11E11A97225F3274001D50C1 /* BattleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E11A96225F3274001D50C1 /* BattleViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +85,8 @@
 		11E11A7E225B2A87001D50C1 /* SE_charge.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = SE_charge.mp3; sourceTree = "<group>"; };
 		11E11A7F225B2A87001D50C1 /* lobby.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = lobby.mp3; sourceTree = "<group>"; };
 		11E11A81225B2A87001D50C1 /* misaki_gothic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = misaki_gothic.ttf; sourceTree = "<group>"; };
+		11E11A94225F3268001D50C1 /* LobbyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobbyViewController.swift; sourceTree = "<group>"; };
+		11E11A96225F3274001D50C1 /* BattleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +139,8 @@
 			children = (
 				11E11A6B225B2A87001D50C1 /* TechMon_Resources */,
 				11E11A3D225B2A43001D50C1 /* AppDelegate.swift */,
+				11E11A94225F3268001D50C1 /* LobbyViewController.swift */,
+				11E11A96225F3274001D50C1 /* BattleViewController.swift */,
 				11E11A3F225B2A43001D50C1 /* ViewController.swift */,
 				11E11A41225B2A43001D50C1 /* Main.storyboard */,
 				11E11A44225B2A44001D50C1 /* Assets.xcassets */,
@@ -365,9 +371,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11E11A97225F3274001D50C1 /* BattleViewController.swift in Sources */,
 				11E11A40225B2A43001D50C1 /* ViewController.swift in Sources */,
 				11E11A8A225B2A87001D50C1 /* TechDraUtil.swift in Sources */,
 				11E11A3E225B2A43001D50C1 /* AppDelegate.swift in Sources */,
+				11E11A95225F3268001D50C1 /* LobbyViewController.swift in Sources */,
 				11E11A8B225B2A87001D50C1 /* Player.swift in Sources */,
 				11E11A89225B2A87001D50C1 /* Enemy.swift in Sources */,
 			);
